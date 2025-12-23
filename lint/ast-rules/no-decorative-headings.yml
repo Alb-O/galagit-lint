@@ -1,0 +1,16 @@
+id: no-decorative-headings
+language: rust
+severity: warning
+message: "Avoid decorative heading-like patterns in comments (e.g., // ===...)."
+note: "Consider using more comprehensive docstrings (/// or //!) with Markdown headers (#) for organization, or seperate the file itself into modular pieces."
+files:
+  - crates/lib/gala-core/**/*.rs
+  - crates/bin/gala-cli/**/*.rs
+  - crates/bin/gala-proxy/**/*.rs
+  - crates/lib/gala-test/**/*.rs
+rule:
+  all:
+    - kind: line_comment
+      regex: ^//\s*([=\-\*\+#_]){3,}.*$
+    - not:
+        regex: ^//[/!]

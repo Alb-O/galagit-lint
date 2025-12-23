@@ -1,0 +1,13 @@
+id: no-string-literal-error
+language: rust
+severity: info
+message: "Consider using typed errors instead of string literals."
+note: "Prefer Error::filter_parse(), Error::filter_apply(), etc. over Error::msg() for better error categorization."
+files:
+  - crates/lib/gala-core/src/**/*.rs
+ignores:
+  - "**/tests/**/*.rs"
+  - "**/tests.rs"
+  - "**/tests_*.rs"
+rule:
+  pattern: Error::msg($MSG)

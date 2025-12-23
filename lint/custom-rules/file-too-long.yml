@@ -1,0 +1,14 @@
+id: file-too-long
+type: file-metric
+check: line-count
+max: 450
+severity: warning
+message: "File exceeds 450 lines. Consider refactoring into smaller modules."
+note: "Large files are harder to navigate and maintain. Extract related functionality into separate modules."
+files:
+  - "crates/lib/gala-core/**/*.rs"
+  - "crates/bin/gala-cli/**/*.rs"
+  - "crates/bin/gala-proxy/**/*.rs"
+  - "crates/lib/gala-test/**/*.rs"
+ignores:
+  - "**/benches/**"
